@@ -41,16 +41,18 @@ basic.forever(function () {
             }
         }
     }
-    if (Ticks > 10) {
+    if (Ticks > 0 && Ticks <= 10) {
         basic.pause(800)
-    } else if (Ticks > 20) {
+    } else if (Ticks > 10 && Ticks <= 20) {
         basic.pause(500)
-    } else if (Ticks > 30) {
+    } else if (Ticks > 20 && Ticks <= 30) {
         basic.pause(250)
-    } else if (Ticks > 40) {
+    } else if (Ticks > 30 && Ticks <= 40) {
         basic.pause(100)
+    } else if (Ticks > 40 && Ticks <= 50) {
+        basic.pause(50)
     } else {
-        basic.pause(1000)
+        basic.pause(20)
     }
     serial.writeLine("" + (Pass))
     Ticks += 1
