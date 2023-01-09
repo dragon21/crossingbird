@@ -17,6 +17,7 @@ Bird.set(LedSpriteProperty.Brightness, 100)
 basic.forever(function () {
     for (let Obstacle of Obstacles) {
         if (Obstacle.get(LedSpriteProperty.X) == Bird.get(LedSpriteProperty.X) && Obstacle.get(LedSpriteProperty.Y) == Bird.get(LedSpriteProperty.Y)) {
+            music.playSoundEffect(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 2000, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.InBackground)
             game.setScore(Pass)
             game.gameOver()
         }
