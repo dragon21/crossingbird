@@ -19,6 +19,7 @@ basic.forever(function () {
         if (Obstacle.get(LedSpriteProperty.X) == Bird.get(LedSpriteProperty.X) && Obstacle.get(LedSpriteProperty.Y) == Bird.get(LedSpriteProperty.Y)) {
             music.playSoundEffect(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 2000, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.InBackground)
             game.setScore(Pass)
+            Pass = 0
             game.gameOver()
         }
     }
@@ -41,18 +42,18 @@ basic.forever(function () {
             }
         }
     }
-    if (Ticks > 0 && Ticks <= 10) {
+    if (Pass >= 0 && Pass <= 10) {
         basic.pause(800)
-    } else if (Ticks > 10 && Ticks <= 20) {
-        basic.pause(500)
-    } else if (Ticks > 20 && Ticks <= 30) {
-        basic.pause(250)
-    } else if (Ticks > 30 && Ticks <= 40) {
+    } else if (Pass > 10 && Pass <= 20) {
+        basic.pause(600)
+    } else if (Pass > 20 && Pass <= 30) {
+        basic.pause(350)
+    } else if (Pass > 30 && Pass <= 40) {
+        basic.pause(200)
+    } else if (Pass > 40 && Pass <= 50) {
         basic.pause(100)
-    } else if (Ticks > 40 && Ticks <= 50) {
-        basic.pause(50)
     } else {
-        basic.pause(20)
+        basic.pause(50)
     }
     serial.writeLine("" + (Pass))
     Ticks += 1
