@@ -41,11 +41,13 @@ basic.forever(function () {
             }
         }
     }
-    if (Ticks == 10) {
+    if (Ticks > 10) {
+        basic.pause(800)
+    } else if (Ticks > 20) {
         basic.pause(500)
-    } else if (Ticks == 20) {
-        basic.pause(200)
-    } else if (Ticks == 30) {
+    } else if (Ticks > 30) {
+        basic.pause(250)
+    } else if (Ticks > 40) {
         basic.pause(100)
     } else {
         basic.pause(1000)
