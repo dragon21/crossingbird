@@ -28,6 +28,11 @@ basic.forever(function () {
             }
         }
     }
+    for (let Obstacle of Obstacles) {
+        if (Obstacle.get(LedSpriteProperty.X) == Bird.get(LedSpriteProperty.X) && Obstacle.get(LedSpriteProperty.Y) == Bird.get(LedSpriteProperty.Y)) {
+            game.gameOver()
+        }
+    }
     Ticks += 1
     basic.pause(1000)
 })
