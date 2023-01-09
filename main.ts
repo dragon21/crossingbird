@@ -22,6 +22,11 @@ basic.forever(function () {
     }
     if (Ticks % 4 == 0) {
         EmptyObstacle = randint(0, 4)
+        for (let index = 0; index <= 4; index++) {
+            if (index != EmptyObstacle) {
+                Obstacles.push(game.createSprite(4, index))
+            }
+        }
     }
     Ticks += 1
     basic.pause(1000)
