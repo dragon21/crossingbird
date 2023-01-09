@@ -14,8 +14,14 @@ Bird = game.createSprite(0, 2)
 Bird.set(LedSpriteProperty.Blink, 130)
 Bird.set(LedSpriteProperty.Brightness, 100)
 basic.forever(function () {
+    for (let Obstacle of Obstacles) {
+        if (Obstacle.get(LedSpriteProperty.X) == Bird.get(LedSpriteProperty.X) && Obstacle.get(LedSpriteProperty.Y) == Bird.get(LedSpriteProperty.Y)) {
+            game.gameOver()
+        }
+    }
     while (Obstacles.length > 0 && Obstacles[0].get(LedSpriteProperty.X) == 0) {
         Obstacles.removeAt(0).delete()
+        game.addScore(1)
     }
     for (let Obstacle of Obstacles) {
         Obstacle.change(LedSpriteProperty.X, -1)
@@ -26,11 +32,6 @@ basic.forever(function () {
             if (index != EmptyObstacle) {
                 Obstacles.push(game.createSprite(4, index))
             }
-        }
-    }
-    for (let Obstacle of Obstacles) {
-        if (Obstacle.get(LedSpriteProperty.X) == Bird.get(LedSpriteProperty.X) && Obstacle.get(LedSpriteProperty.Y) == Bird.get(LedSpriteProperty.Y)) {
-            game.gameOver()
         }
     }
     Ticks += 1
