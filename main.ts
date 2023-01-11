@@ -55,6 +55,6 @@ basic.forever(function () {
     } else {
         basic.pause(50)
     }
-    serial.writeLine("" + (Pass))
     Ticks += 1
+    serial.writeLine("Ticks" + Ticks + "Remainder" + Ticks % 5 + "Pass" + Pass)
 })
